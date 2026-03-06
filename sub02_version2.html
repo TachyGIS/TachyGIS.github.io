@@ -1,57 +1,316 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TachyGIS Version 2</title>
+
+  <style>
 
 
-  
-  <meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>TachyGIS Version 2</title></head><body>
-<h1>TachyGIS Version 2<br>
-</h1>
+    :root{
+      /* Core */
+      --bg: #0f1115;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.085);
+      --border: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --faint: rgba(255,255,255,.58);
 
-<i>&gt; <a href="https://tachygis.github.io/">TachyGIS</a> &gt;
-Version 2</i><br>
-<p>Die Version 2 von TachyGIS ist eine grundlegende Überarbeitung der
-Version 1. Die wesentliche Funktionalität bleibt dabei erhalten. Bei
-der Überarbeitung gibt es drei Schwerpunkte:<br>
-</p>
-<ul>
-  <li>Code-Refaktorierung </li>
-  <ul>
-    <li>Verbesserung von Qualität und Robustheit</li>
-    <li>Behebung von Fehlern</li>
-    <li>Update des Plugins für QGIS v3.40 LTR</li>
-    <li>Konfig-Datei eingeführt</li>
-    <li>Integration von Tachy2GIS in Tachy2GIS_arch</li>
-  </ul>
-  <li>Geopackage als Geodatenbank (anstatt bisheriger Shapefiles)</li>
-  <ul>
-    <li>moderne Geodatenstruktur</li>
-    <li>kleine Korrekturen und Ergänzungen der Datenstruktur</li>
-    <li>Modifikation der Vokabulare (bessere Nutzbarkeit eigener Vokabulare)</li>
-  </ul>
-  <li>Profile-Tool überarbeitet</li>
-  <ul>
-    <li>diverse Probleme behandelt</li>
-    <li>Transformationsmethode selektierbar</li>
-    <li>Kreuzprofil-Funktionalität (spiegeln + montieren)</li>
-    <li>Änderung von Objektattributen im Editiermodus</li>
-    <li>Datenexport für Profilplan per Profilnummer (ins Geopackage)</li>
-  </ul>
-</ul>Die Entwicklung findet in folgendem GitHub-Repositorium statt: <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch" target="_blank">TachyGIS_arch (develop)</a>.<br>
+      /* Accent system */
+      --accent: #5b9bd5;         /* dunkelblau */
+      --accent-hover: #081f45;   
+      --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+      --accent-soft-2: color-mix(in srgb, var(--accent) 10%, transparent);
+      --link-underline: color-mix(in srgb, var(--accent) 55%, transparent);
+
+      /* Layout */
+      --shadow: 0 18px 55px rgba(0,0,0,.38);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 980px;
+      --gap: 18px;
+
+      /* Typography */
+      --lh: 1.65;
+      --content-width: 74ch;
+
+      color-scheme: dark;
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f5f6f8;
+        --panel: #ffffff;
+        --panel2: #ffffff;
+        --border: rgba(17,24,39,.12);
+        --text: rgba(17,24,39,.96);
+        --muted: rgba(17,24,39,.78);
+        --faint: rgba(17,24,39,.62);
+        --shadow: 0 18px 55px rgba(0,0,0,.09);
+
+        color-scheme: light;
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg); 
+      color: var(--text);
+      line-height: var(--lh);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a{
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--link-underline);
+    }
+    a:hover{
+      color: var(--accent-hover);
+      text-decoration-color: color-mix(in srgb, var(--accent-hover) 70%, transparent);
+    }
+    a:focus-visible{
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 18px 64px;
+    }
+
+    header.hero{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    header.hero::before{
+      content: none; 
+    }
+
+    .hero-inner{
+      padding: 22px 22px 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(30px, 3.2vw, 46px);
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+
+    .quote{
+      margin: 0;
+      padding: 10px 12px;
+      border-left: 4px solid color-mix(in srgb, var(--accent) 35%, transparent);
+      background: var(--accent-soft-2);
+      border-radius: 12px;
+      width: fit-content;
+      color: var(--muted);
+    }
+
+    nav.toc{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 22px 18px;
+    }
+    nav.toc a{
+      display:inline-flex;
+      align-items:center;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      text-decoration: none;     
+      font-weight: 600;        
+      color: var(--text);
+      font-size: 14px;
+    }
+    nav.toc a:hover{
+      background: rgba(255,255,255,.05);
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    }
+    nav.toc a:focus-visible{
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 999px;
+    }
+
+    .hero-image{
+      border-top: 1px solid var(--border);
+      padding: 14px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .hero-image figure{
+      margin: 0;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.02);
+    }
+
+    .hero-image img{
+      display:block;
+      width:100% !important;
+      height:auto !important;
+      max-height: 280px;
+      object-fit: cover;
+    }
+
+    main{
+      margin-top: 18px;
+      display: grid;
+      gap: var(--gap);
+    }
+
+    section.card{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: var(--shadow);
+      padding: 20px 22px;
+      scroll-margin-top: 16px;
+    }
+
+    h2{
+      margin: 0 0 12px;
+      font-size: clamp(18px, 2vw, 22px);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h4{
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    p{
+      margin: 12px 0;
+      color: var(--text);
+      max-width: var(--content-width);
+    }
+    p + p{ margin-top: 12px; }
+
+    ul{
+      margin: 12px 0 0;
+      padding-left: 20px;
+      max-width: var(--content-width);
+    }
+    li{ margin: 8px 0; }
+    li::marker{ color: color-mix(in srgb, var(--accent) 55%, transparent); }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: var(--gap);
+    }
+    @media (min-width: 900px){
+      .grid-2{ grid-template-columns: 1fr 1fr; }
+    }
+
+    footer{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      padding: 16px 20px;
+      color: var(--faint);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 16px;
+    }
+
+    [dir="auto"]{ unicode-bidi: plaintext; }
+  </style>
+
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>TachyGIS Version 2</h1>
+        <p class="quote"><i>&gt; <a href="https://tachygis.github.io/">TachyGIS</a> &gt;Version 2</i><br>
+      </div>
+
+      <div class="hero-image">
+        <figure>
+          <img title="TachyGIS-Image" src="https://tachygis.github.io/TachyGIS_Image0.png" style="width: 638px; height: 200px;" alt="TachyGIS-Image">
+        </figure>
+      </div>
+    </header>
+
+    <main>
+      <section class="card" id="uebersicht">
+        <h2>Übersicht zur Version 2<br></h2>
+
+		<p>Die Version 2 von TachyGIS ist eine grundlegende Überarbeitung der
+		Version 1. Die wesentliche Funktionalität bleibt dabei erhalten. Bei
+		der Überarbeitung gibt es drei Schwerpunkte:<br>
+		</p>
+		<ul>
+		  <li>Code-Refaktorierung </li>
+		  <ul>
+			<li>Verbesserung von Qualität und Robustheit</li>
+			<li>Behebung von Fehlern</li>
+			<li>Update des Plugins für QGIS v3.40 LTR</li>
+			<li>Konfig-Datei eingeführt</li>
+			<li>Integration von Tachy2GIS in Tachy2GIS_arch</li>
+		  </ul>
+		  <li>Geopackage als Geodatenbank (anstatt bisheriger Shapefiles)</li>
+		  <ul>
+			<li>moderne Geodatenstruktur</li>
+			<li>kleine Korrekturen und Ergänzungen der Datenstruktur</li>
+			<li>Modifikation der Vokabulare (bessere Nutzbarkeit eigener Vokabulare)</li>
+		  </ul>
+		  <li>Profile-Tool überarbeitet</li>
+		  <ul>
+			<li>diverse Probleme behandelt</li>
+			<li>Transformationsmethode selektierbar</li>
+			<li>Kreuzprofil-Funktionalität (spiegeln + montieren)</li>
+			<li>Änderung von Objektattributen im Editiermodus</li>
+			<li>Datenexport für Profilplan per Profilnummer (ins Geopackage)</li>
+		  </ul>
+		</ul>Die Entwicklung findet in folgendem GitHub-Repositorium statt: <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch" target="_blank">TachyGIS_arch (develop)</a>.<br>
 
 
+      </section>
 
-<h4>Impressum</h4>
+      <footer id="impressum">
+        <h4>Impressum</h4>
 
-<p><a href="https://www.archaeologie.sachsen.de/" target="_blank">Landesamt
-für Archäologie Sachsen</a>, Zur Wetterwarte 7, 01109 Dresden (Kontakt:
-Reiner Göldner)</p>
+        <p>
+          <a href="https://www.archaeologie.sachsen.de/" target="_blank" rel="noopener">Landesamt für Archäologie Sachsen</a>,
+          Zur Wetterwarte 7, 01109 Dresden (Kontakt: Reiner Göldner)
+        </p>
 
-<p>Diese Webseite benutzt keine Cookies und erfasst keine
-personenbezogenen Daten.</p>
-<p>Für externe Links und für die benannte Software wird keine Verantwortung übernommen.</p>
+        <p>Diese Webseite benutzt keine Cookies und erfasst keine personenbezogenen Daten.</p>
+        <p>Für externe Links und für die benannte Software wird keine Verantwortung übernommen.<br></p>
 
-
-<br>
-
-<br>
-</body></html>
+        <br>
+        <br>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
