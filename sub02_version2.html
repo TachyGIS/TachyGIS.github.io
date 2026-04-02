@@ -35,7 +35,8 @@
 
       /* Typography */
       --lh: 1.65;
-      --content-width: 74ch;
+      /* --content-width: 74ch; */
+	  --content-width: 150ch;
 
       color-scheme: dark;
     }
@@ -249,9 +250,14 @@
   <div class="wrap">
     <header class="hero">
       <div class="hero-inner">
-        <h1>TachyGIS Version 2</h1>
-        <p class="quote"><i>&gt; <a href="https://tachygis.github.io/">TachyGIS</a> &gt;Version 2</i><br>
+        <h1>TachyGIS - Version 2</h1>
       </div>
+
+      <nav class="toc" aria-label="Inhaltsübersicht">
+        <a href="https://tachygis.github.io/">Home</a>
+        <a href="#uebersicht">Übersicht</a>
+        <a href="#download">Download</a>
+      </nav>
 
       <div class="hero-image">
         <figure>
@@ -264,12 +270,14 @@
       <section class="card" id="uebersicht">
         <h2>Übersicht zur Version 2<br></h2>
 
+		<h4>Diese Version ist die aktuelle TachyGIS-Version.</h4>
+
 		<p>Die Version 2 von TachyGIS ist eine grundlegende Überarbeitung der
 		Version 1. Die wesentliche Funktionalität bleibt dabei erhalten. Bei
-		der Überarbeitung gibt es drei Schwerpunkte:<br>
+		der Überarbeitung gab es drei Schwerpunkte:<br>
 		</p>
 		<ul>
-		  <li>Code-Refaktorierung </li>
+		  <li>Code-Refactorierung </li>
 		  <ul>
 			<li>Verbesserung von Qualität und Robustheit</li>
 			<li>Behebung von Fehlern</li>
@@ -291,10 +299,33 @@
 			<li>Änderung von Objektattributen im Editiermodus</li>
 			<li>Datenexport für Profilplan per Profilnummer (ins Geopackage)</li>
 		  </ul>
-		</ul>Die Entwicklung findet in folgendem GitHub-Repositorium statt: <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch" target="_blank">TachyGIS_arch (develop)</a>.<br>
-
-
+		</ul>
+		<p>Die Software ist per GitHub frei verfügbar (s. Download)</p>
       </section>
+
+      <div class="grid">
+         <section class="card" id="download">
+          <h2>Download Version 2</h2>
+
+          <p>TachyGIS Version 2 ist die aktuelle Version. Hier wurde die Tachymeter-Schnittstelle (Tachy2GIS, TachyConnect) vollständig integriert und man benötigt nur noch die Software aus dem folgenden GitHub-Repositorium: </p>
+          <ul>
+            <li><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/releases" target="_blank" rel="noopener">Tachy2GIS_arch</a> (archäologische Fachschale)</li>
+          </ul>
+          <p>Außerdem stehen diese beiden QGIS-Projektvorlagen zur Verfügung:</p>
+          <ul>
+            <li><b>GIS-Projekt_UTM32</b> (GDKE Rheinland-Pfalz) - ist schon auf dem Wege und kommt alsbald </li>
+            <!--
+			<li><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/GIS-Projekt_UTM33/releases/tag/v1.0.2" target="_blank" rel="noopener">GIS-Projekt_UTM32 </a> (GDKE Rheinland-Pfalz) - ist schon auf dem Wege und kommt alsbald</li>
+			--!>
+            <li><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/GIS-Projekt_UTM33/tree/develop_v2.0" target="_blank" rel="noopener">GIS-Projekt_UTM33</a> (LfA Sachsen) - hier noch als Entwicklung gekennzeichnet, wir arbeiten daran</li>
+          </ul>
+          <p>Die Dokumentation ist noch in Bearbeitung, hier schon mal ein erster Entwurf:</p>
+          <ul>
+            <li><a href="https://tachygis.github.io/TachyGIS_2.0_Doku_v0.3.pdf" target="_blank" rel="noopener">Handbuch (Vorabversion) zu Tachy2GIS und Tachy2GIS_arch Version 2</a></li>
+          </ul>
+
+        </section>
+      </div>
 
       <footer id="impressum">
         <h4>Impressum</h4>

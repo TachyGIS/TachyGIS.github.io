@@ -35,7 +35,8 @@
 
       /* Typography */
       --lh: 1.65;
-      --content-width: 74ch;
+      /* --content-width: 74ch; */
+	  --content-width: 150ch;
 
       color-scheme: dark;
     }
@@ -251,29 +252,29 @@
     <header class="hero">
       <div class="hero-inner">
         <h1>TachyGIS</h1>
-        <p class="quote"><i>&gt; TachyGIS</i></p>
       </div>
 
       <nav class="toc" aria-label="Inhaltsübersicht">
         <a href="#uebersicht">Übersicht</a>
         <a href="#aktuell">Aktuell</a>
-        <a href="#details">Details zu TachyGIS</a>
-        <a href="#download">Download</a>
-        <a href="#ansprechpartner">Ansprechpartner</a>
+        <a href="#details">Details</a>
+        <a href="#version1">Version 1</a>
+        <a href="#version2">Version 2 </a>
+        <a href="#mitgestalter">Mitgestalter</a>
         <a href="#english">English Version</a>
         <a href="#impressum">Impressum</a>
       </nav>
 
       <div class="hero-image">
         <figure>
-          <img title="TachyGIS-Image" src="https://tachygis.github.io/TachyGIS_Image0.png" style="width: 638px; height: 200px;" alt="TachyGIS-Image">
+          <img title="TachyGIS-Image" src="https://tachygis.github.io/TachyGIS_Image0.png" alt="TachyGIS-Image">
         </figure>
       </div>
     </header>
 
     <main>
       <section class="card" id="uebersicht">
-        <h2>Übersicht<br></h2>
+        <h2>Übersicht</h2>
 
         <p>
           TachyGIS ist eine Idee zur archäologischen Grabungsvermessung mit
@@ -281,13 +282,7 @@
         </p>
 
         <p>
-          QGIS-Plugins erlauben es, Funde und Befunde mit einem Tachymeter "live"
-          einzumessen.<br>
-          Neben einer Tachymeter-Schnittstelle, die die gemessenen Punkte an QGIS
-          übergibt und<br>
-          als Standard-Geodaten speichert, wurde eine archäologiespezifische
-          Benutzeroberfläche<br>
-          entwickelt, die eine effektive Datenerfassung vor Ort ermöglicht.
+          QGIS-Plugins erlauben es, Funde und Befunde mit einem Tachymeter "live" einzumessen. Neben einer Tachymeter-Schnittstelle, die die gemessenen Punkte an QGIS  übergibt und als Standard-Geodaten speichert, wurde eine archäologiespezifische Benutzeroberfläche entwickelt, die eine effektive Datenerfassung vor Ort ermöglicht.
         </p>
 
         <p>TachyGIS fasst zwei (ursprünglich) getrennte Entwicklungen zusammen:</p>
@@ -302,6 +297,11 @@
             bildet eine archäologische Fachschale für Tachy2GIS
           </li>
         </ul>
+
+        <p>In der neuen 
+		<a href="https://tachygis.github.io/sub02_version2.html">TachyGIS Version 2</a> 
+		sind diese Komponenten nun auch softwareseitig zusammengeführt. 
+		Neben dem aufwändigen Code-Refactoring werden nun Geopackages eingesetzt (anstatt der bisherigen Shapefiles) und es gab Überarbeitungen (und Fehlerbereinigungen) der Tools und der Nutzeroberfläche.</p>
       </section>
 
       <section class="card" id="aktuell">
@@ -309,8 +309,8 @@
 
         <p>
           Für den Produktivbetrieb ist aktuell
-          <a href="https://tachygis.github.io/sub01_version1.html">TachyGIS Version 1</a> geeignet.&nbsp;
-          <a href="https://tachygis.github.io/sub02_version2.html">TachyGIS Version 2</a> ist gerade in Entwicklung. <br>
+          <a href="https://tachygis.github.io/sub02_version2.html">TachyGIS Version 2</a> geeignet.<br>
+          (<a href="https://tachygis.github.io/sub01_version1.html">TachyGIS Version 1</a> steht als Vorgänger noch zur Verfügung.)
         </p>
       </section>
 
@@ -323,98 +323,101 @@
           <li><a target="_blank" rel="noopener" href="https://tachygis.github.io/TachyGIS_Idee_S_2018.pdf">TachyGIS Idee</a> (Kurzfassung 2018, PDF)</li>
           <li><a target="_blank" rel="noopener" href="https://tachygis.github.io/TachyGIS_Flyer_S_2022.pdf">TachyGIS-Flyer</a> (Kurzfassung 2022, PDF)</li>
           <li><a target="_blank" rel="noopener" href="https://tachygis.github.io/TachyGIS_Flyer_L_2022.pdf">TachyGIS-Flyer</a> (Langfassung 2022, PDF)</li>
-          <li><a href="https://tachygis.github.io/sub01_version1.html">TachyGIS Version 1</a></li>
-          <li><a href="https://tachygis.github.io/sub02_version2.html">TachyGIS Version 2</a> (in Arbeit)</li>
           <li><a target="_blank" rel="noopener" href="https://www.archaeologie.sachsen.de/tachygis-9885.html">Website "TachyGIS"</a> (Landesamt für Archäologie Sachsen)</li>
-          <li><a href="https://tachygis.github.io/sub03_mitgestalter.html">Mitgestalter und Beteiligte</a></li>
         </ul>
       </section>
 
-      <div class="grid-2">
-        <section class="card" id="download">
-          <h2>Download</h2>
-
-          <p>
-            TachyGIS ist freie und quelloffene Software. Es besteht keine Garantie für die Qualität und Funktionalität und es wird keine Haftung für eventuelle Schäden durch diese Software übernommen.<br>
-          </p>
-
-          <p>Für TachyGIS gibt es folgende wichtige github-Repositorien (letzte Produktivversion):</p>
-
+	  <div class="grid-2">
+        <section class="card" id="version2">
+          <h2>Version 2 (aktuell)</h2>
+          <p>Die TachyGIS Version 2 ist die aktuelle Version.</p>
+          <p>Sie ist eine grundlegende Überarbeitung der Version 1. Wesentliche Funktionalität blieb erhalten. Schwerpunkte der Überarbeitung waren: <br>
           <ul>
-            <li><a href="https://github.com/chris-jan-trapp/Tachy2GIS/releases/tag/v1.1.0" target="_blank" rel="noopener">Tachy2GIS</a> (QGIS-Schnittstelle zum Tachymeter)</li>
-            <li><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/releases/tag/v1.1.0" target="_blank" rel="noopener">Tachy2GIS_arch</a> (archäologische Fachschale)</li>
-            <li><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/GIS-Projekt_UTM33/releases/tag/v1.0.2" target="_blank" rel="noopener">GIS-Projekt_UTM33</a> (QGIS-Projektvorlage)<br></li>
+            <li>Code-Refactoring (nur noch ein Plugin)</li>
+            <li>Geopackage (anstatt bisher Shapefiles)</li>
+            <li>Korrekturen an Tools und Oberfläche</li>
           </ul>
+          <p>Weitere Informationen und Downloads findet man auf der folgenden Seite:</p>
+          <ul><li><a href="https://tachygis.github.io/sub02_version2.html">TachyGIS Version 2</a></li></ul>
         </section>
 
-        <section class="card" id="ansprechpartner">
-          <h2>Ansprechpartner</h2>
-
-          <ul>
-            <li>
-              Tachy2GIS wurde im Auftrag des
-              <a href="https://amh.de/" target="_blank" rel="noopener">Archäologischen Museums Hamburg</a>
-              entwickelt (Kontakt: Jörg Räther).
-            </li>
-            <li>
-              Tachy2GIS_arch wurde initial im Auftrag des
-              <a href="https://www.archaeologie.sachsen.de/" target="_blank" rel="noopener">Landesamtes für Archäologie Sachsen</a>
-              entwickelt (Kontakt: Christof Schubert und Reiner Göldner).
-            </li>
-            <li>
-              Die Version 2 von Tachy2GIS_arch wurde auch maßgeblich im Auftrag der
-              <a href="https://gdke.rlp.de/" target="_blank" rel="noopener">Generaldirektion Kulturelles Erbe Rheinland-Pfalz</a>
-              entwickelt (Kontakt: Johannes Reiter).
-            </li>
-          </ul>
+        <section class="card" id="version1">
+          <h2>Version 1</h2>
+          <p>Die TachyGIS Version 1 ist der Vorgänger der aktuellen Version 2.</p>
+          <p>Sie stellt Hilfsmittel (Plugins) für QGIS zur Verfügung, die eine direkte tachymetrische Vermessung realer 3D-Geometrien sowie eine effektive Erfassung archäologischer Attribute für Grabungspläne ermöglichen.</p>
+          <p>Weitere Informationen und Downloads findet man auf der folgenden Seite:</p>
+          <ul><li><a href="https://tachygis.github.io/sub01_version1.html">TachyGIS Version 1</a></li></ul>
         </section>
       </div>
+
+      <section class="card" id="aktuell">
+        <h2>Disclaimer</h2>
+
+        <p>
+            TachyGIS ist freie und quelloffene Software. Es besteht keine Garantie für die Qualität und Funktionalität und es wird keine Haftung für eventuelle Schäden durch diese Software übernommen.
+        </p>
+      </section>
+
+      <section class="card" id="mitgestalter">
+        <h2>Mitgestalter</h2>
+
+		<p>Folgende Institutionen und Personen waren/sind aktiv an der gegenwärtigen Entwicklung beteiligt:</p>
+		<ul>
+		  <li><a href="https://www.archaeologie.sachsen.de/" target="_blank">Landesamt für Archäologie Sachsen</a> (LfA-SN, Kontakt: Christof Schubert und Reiner Göldner).</li>
+		  <li><a href="https://gdke.rlp.de/" target="_blank">Generaldirektion Kulturelles Erbe Rheinland-Pfalz</a> (GDKE-RP, Kontakt: Johannes Reiter).</li>
+		  <li><a href="https://visdat.de" target="_blank">VisDat geodatentechnologie GmbH</a> (Kontakt: Mario Uhlig)</li>
+		  <li><a href="https://wheregroup.com/" target="_blank">WhereGroup</a></li>
+		</ul>
+
+		<p>Für wichtige Vorarbeiten danken wir:</p>
+		<ul>
+		  <li><a href="https://amh.de/" target="_blank">Archäologisches Museum Hamburg</a> (AMH, Kontakt: Jörg Räther).</li>
+		  <li>Christian Trapp (Entwickler)</li>
+		  <li><a href="https://isaakiel.github.io/" target="_blank">Initiative for Statistical Analysis in Archaeology Kiel (ISAAK)</a> für ihr Tool <a href="https://github.com/ISAAKiel/profileAAR" target="_blank">profileAAR</a></li>
+		</ul>
+        </section>
 
       <section class="card" id="english">
         <h2>English Version</h2>
 
         <p>
           TachyGIS is an idea to survey archaeological excavations with total
-          station and GIS. With two QGOS plugins it is possible to directly use
+          station and GIS. With QGIS plugins it is possible to directly use
           total station 3D survey points to edit points, lines and polygons in
           QGIS and to efficiently record archaeological attributes. Some more
-          information is available at:<br>
+          information is available at:
         </p>
 
         <ul>
           <li>
-            <a href="https://tachygis.github.io/TachyGIS_Idea_EN.pdf" target="_blank" rel="noopener">TachyGIS – An Idea to Survey Archaeological Excavations with Total Station and GIS</a><br>
+            <a href="https://tachygis.github.io/TachyGIS_Idea_EN.pdf" target="_blank" rel="noopener">TachyGIS – An Idea to Survey Archaeological Excavations with Total Station and GIS</a>
           </li>
         </ul>
 
-        <p>There are some important github-repositories belonging to TachyGIS:</p>
+        <p>There are some important GitHub-repositories belonging to TachyGIS:</p>
 
         <ul>
           <li>
-            <b><a href="https://github.com/chris-jan-trapp/Tachy2GIS/releases/tag/v1.1.0" target="_blank" rel="noopener">Tachy2GIS</a></b>
-            is a QGIS interface for total station (by
-            <a href="https://amh.de/" target="_blank" rel="noopener">Archäologisches Museum Hamburg</a>),
-          </li>
-          <li>
-            <b><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/releases/tag/v1.1.0" target="_blank" rel="noopener">Tachy2GIS_arch</a></b> is an archaeological user interface
-            for Tachy2GIS (by
+            Tachy2GIS_arch is an archaeological user interface for Tachy2GIS (by
             <a href="https://www.archaeologie.sachsen.de/" target="_blank" rel="noopener">Landesamt für Archäologie Sachsen</a>
             and
             <a href="https://gdke.rlp.de/" target="_blank" rel="noopener">Generaldirektion Kulturelles Erbe Rheinland-Pfalz)</a>
           </li>
           <ul>
             <li>
-              latest productive version is 1.1.0:
-              <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/releases/tag/v1.1.0" target="_blank" rel="noopener">Tachy2GIS_arch,</a>
+              latest productive version is 2.0:
+              <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/releases/tag/v1.1.0" target="_blank" rel="noopener">xxxTachy2GIS_arch_v2.0xxx,</a>
             </li>
             <li>
-              current development is for version 2:
-              <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch" target="_blank" rel="noopener">TachyGIS_arch (develop)</a>,
+              former productive version is 1.1:
+              <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch" target="_blank" rel="noopener">xxxTachyGIS_arch_v1.1xxx</a>,
             </li>
           </ul>
           <li>
-            <b><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/GIS-Projekt_UTM33" target="_blank" rel="noopener">GIS-Projekt_UTM33</a></b>
-            (QGIS project).<br>
+            <b><a href="https://github.com/chris-jan-trapp/Tachy2GIS/releases/tag/v1.1.0" target="_blank" rel="noopener">Tachy2GIS</a></b>
+            is a QGIS interface for total station (by
+            <a href="https://amh.de/" target="_blank" rel="noopener">Archäologisches Museum Hamburg</a>),
+            that now is completely integrated in version 2 of TachyGIS_Arch.
           </li>
         </ul>
 
@@ -430,10 +433,10 @@
         </p>
 
         <p>Diese Webseite benutzt keine Cookies und erfasst keine personenbezogenen Daten.</p>
-        <p>Für externe Links und für die benannte Software wird keine Verantwortung übernommen.<br></p>
+        <p>Für externe Links und für die benannte Software wird keine Verantwortung übernommen.</p>
 
-        <br>
-        <br>
+        
+        
       </footer>
     </main>
   </div>

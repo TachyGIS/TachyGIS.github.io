@@ -35,7 +35,8 @@
 
       /* Typography */
       --lh: 1.65;
-      --content-width: 74ch;
+      /* --content-width: 74ch; */
+	  --content-width: 150ch;
 
       color-scheme: dark;
     }
@@ -249,9 +250,14 @@
   <div class="wrap">
     <header class="hero">
       <div class="hero-inner">
-        <h1>TachyGIS Version 1</h1>
-        <p class="quote"><i>&gt; <a href="https://tachygis.github.io/">TachyGIS</a> &gt;Version 1</i><br>
+        <h1>TachyGIS - Version 1</h1>
       </div>
+
+      <nav class="toc" aria-label="Inhaltsübersicht">
+        <a href="https://tachygis.github.io/">Home</a>
+		<a href="#uebersicht">Übersicht</a>
+        <a href="#download">Download</a>
+      </nav>
 
       <div class="hero-image">
         <figure>
@@ -263,6 +269,8 @@
     <main>
       <section class="card" id="uebersicht">
         <h2>Übersicht zur Version 1<br></h2>
+
+		<h4>Achtung, diese Version ist nicht die neueste TachyGIS-Version!</h4>
 
 		<p>Die Version 1 von TachyGIS (eigentlich TachyGIS_arch) stellt Hilfsmittel (Plugins) für QGIS zur
 		Verfügung, die eine direkte tachymetrische Vermessung realer
@@ -296,10 +304,25 @@
 		  <li>Die Arbeit mit TachyGIS erfordert eine spezielle QGIS-Projektvorlage (mitgeliefert).</li>
 		</ul>
 		<p>Die ersten beiden Punkte übernimmt das Plugin „Tachy2GIS“, die weitere Funktionalität entstammt aus dem Plugin „Tachy2GIS_arch“.</p>
-		<p>Die Software ist frei verfügbar unter <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/releases/tag/v1.1.0" target="_blank">Tachy2GIS_arch</a>, eine dazugehörige QGIS-Projektvorlage unter <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/GIS-Projekt_UTM33/releases/tag/v1.0.2" target="_blank">GIS-Projekt_UTM33</a>.</p>
-		<p>Auf GitHub findet man ein knappes <a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/blob/develop/T2G_arch_Bedienungsanleitung.pdf" target="_blank">Handbuch zu Tachy2GIS und Tachy2GIS_arch</a>. <br>
-		</p>
+		<p>Die Software ist per GitHub frei verfügbar (s. Download)</p>
       </section>
+
+      <div class="grid">
+        <section class="card" id="download">
+          <h2>Download Version 1</h2>
+
+          <p>
+			TachyGIS Version 1 ist der Vorgänger der aktuellen Version 2. Für die Version 1 stehen noch folgende wichtige GitHub-Repositorien zur Verfügung:
+		  </p>
+
+          <ul>
+            <li><a href="https://github.com/chris-jan-trapp/Tachy2GIS/releases/tag/v1.1.0" target="_blank" rel="noopener">Tachy2GIS</a> (QGIS-Schnittstelle zum Tachymeter)</li>
+            <li><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/releases/tag/v1.1.0" target="_blank" rel="noopener">Tachy2GIS_arch</a> (archäologische Fachschale)</li>
+            <li><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/GIS-Projekt_UTM33/releases/tag/v1.0.2" target="_blank" rel="noopener">GIS-Projekt_UTM33</a> (QGIS-Projektvorlage für Version 1, ETR89_UTM33, LfA Sachsen)</li>
+            <li><a href="https://github.com/Landesamt-fuer-Archaeologie-Sachsen/Tachy2GIS_arch/blob/develop/T2G_arch_Bedienungsanleitung.pdf" target="_blank" rel="noopener">Handbuch zu Tachy2GIS und Tachy2GIS_arch Version 1</a></li>
+          </ul>
+        </section>
+      </div>
 
       <footer id="impressum">
         <h4>Impressum</h4>
